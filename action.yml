@@ -22,7 +22,7 @@ runs:
   using: 'composite'
   steps:
     - name: Execute devenv command
-      shell: zsh
+      shell: zsh {0}
       run: |
         # ensure to source
         if [ -f ~/.zshrc ]; then
