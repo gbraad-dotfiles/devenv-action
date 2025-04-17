@@ -22,6 +22,11 @@ runs:
   using: 'composite'
   steps:
     - name: Execute devenv command
-      shell: zsh {0}
+      shell: zsh -l
       run: |
-        devenv ${{ inputs.prefix }} ${{ inputs.command }} ${{ inputs.args }}
+        if functions devenv > /dev/null; then
+          devenv ${{ inputs.prefix }} ${{ inputs.command }} ${{ inputs.args }}
+        else
+          echo "Error: devenv function is not defined. Please make sure to run install first"
+          exit 1
+        fi
