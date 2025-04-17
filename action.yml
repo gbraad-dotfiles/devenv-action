@@ -22,8 +22,13 @@ runs:
   using: 'composite'
   steps:
     - name: Execute devenv command
-      shell: zsh -l {0}
+      shell: zsh
       run: |
+        # ensure to source
+        if [ -f ~/.zshrc ]; then
+          source ~/.zshrc
+        fi
+
         if functions devenv > /dev/null; then
           devenv ${{ inputs.prefix }} ${{ inputs.command }} ${{ inputs.args }}
         else
