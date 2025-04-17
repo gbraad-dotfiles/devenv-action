@@ -22,7 +22,7 @@ runs:
   using: 'composite'
   steps:
     - name: Execute devenv command
-      shell: zsh -l
+      shell: zsh -l {0}
       run: |
         if functions devenv > /dev/null; then
           devenv ${{ inputs.prefix }} ${{ inputs.command }} ${{ inputs.args }}
