@@ -1,4 +1,4 @@
-name: 'dotfiles devenv command Action'
+name: "gbraad's Dotfiles `devenv` Action"
 description: 'Wrapper for devenv command execution on GitHub runners'
 author: "Gerard Braad <me@gbraad.nl>"
 inputs:
