@@ -14,6 +14,10 @@ inputs:
     description: 'Additional arguments for the command'
     required: false
     default: ''
+  as_user:
+    description: 'User to run the commands as (optional)'
+    required: false
+    default: ""
 outputs:
   prefix:
     description: 'The prefix (container image) that was used'
@@ -24,6 +28,7 @@ runs:
     - name: Execute devenv command
       uses: gbraad-actions/zsh-action@main
       with:
+        as_user: ${{ inputs.as_user }}
         run: |
           # Check if devenv function exists
           if ! type devenv >/dev/null 2>&1; then
